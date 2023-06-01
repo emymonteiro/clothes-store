@@ -29,7 +29,7 @@ git clone https://github.com/emymonteiro/clothes-store.git
 
 ## Developing
 
-Uma vez que o projeto foi clonado é nececssario instalar as dependencias, escolhendo apenas um dos comandos abaixo.
+Uma vez que o projeto foi clonado é necessario instalar as dependencias, escolhendo apenas um dos comandos abaixo.
 
 > É recomendado que utilize o yarn.
 
