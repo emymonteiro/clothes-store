@@ -1,38 +1,61 @@
-# create-svelte
+# Clothing Store
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Loja de roupas feita como projeto/desafio pessoal <!-- [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte). -->
 
-## Creating a project
+## Ferramentas e Stacks
 
-If you're seeing this, you've probably already done this step. Congrats!
+Segue a lista de ferramentas e stacks utilizadas no desenvolvimento do projeto.
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+Vite
+Svelte
+SkeletonUI
+TailwindCSS
+Typescript
+API Rest
+Iconify
+```
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Clonando o projeto
+
+Para clonar o projeto, basta utilizar o comando com o git instalado em seu sistema.
+
+```bash
+
+#clonar projeto github
+git clone https://github.com/emymonteiro/clothes-store.git
+
 ```
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Uma vez que o projeto foi clonado é nececssario instalar as dependencias, escolhendo apenas um dos comandos abaixo.
+
+> É recomendado que utilize o yarn.
 
 ```bash
-npm run dev
+# Requer o yarn instalado
+yarn
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Não recomendado
+npm install
+
+# Não recomendado
+pnpm install
+```
+
+Após a instalação das dependencias inicie o servidor de desenvolvimento
+
+```bash
+yarn dev
 ```
 
 ## Building
 
-To create a production version of your app:
+Para criar a versão de produção do app:
 
 ```bash
-npm run build
+yarn build
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Você pode visualizar a build de produção com `yarn preview`
