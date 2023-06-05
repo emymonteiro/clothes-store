@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types";
 import type { Product } from "../interfaces/ClothingStore";
-import { request } from "../store/ApiRequests";
+import { request } from "../stores/apiRequests";
 
 export const load: PageLoad = async () => {
     const title = 'List of available produtcts';
