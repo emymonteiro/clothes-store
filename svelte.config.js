@@ -8,7 +8,11 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			paths: {
+				base: '/clothes-store'
+			}
+		}),
 		prerender: {
 			entries: ['/', '/product/1', '/product/2']
 		}

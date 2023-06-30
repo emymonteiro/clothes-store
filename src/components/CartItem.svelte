@@ -1,20 +1,26 @@
 <script lang="ts">
 	import type { Product } from '../interfaces/ClothingStore';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import IconifyIcon from '@iconify/svelte';
 	import { handleCart } from '../stores/shoppingCart';
 	export let cartItem: Product;
+
+	function productRoute(id: number) {
+		const pathBase = $page.url.origin.includes('github') ? '/clothes-store' : '';
+		goto(`${$page.url.origin}${pathBase}/product/${id}`);
+	}
 </script>
 
 <div class="flex">
 	<div class="w-full min-h-[150px] flex items-center gap-x-4">
-		<button on:click={() => goto(`/product/${cartItem.id}`)}>
+		<button on:click={() => productRoute(cartItem.id)}>
 			<img class="max-w-[80px]" src={cartItem.image} alt="" />
 		</button>
 		<div class="flex flex-col w-full">
 			<div class="flex justify-between pb-1">
 				<button
-					on:click={() => goto(`/product/${cartItem.id}`)}
+					on:click={() => productRoute(cartItem.id)}
 					class="open-sans text-xs uppercase font-medium max-w-[240px] hover:underline text-left"
 				>
 					{cartItem.title}

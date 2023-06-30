@@ -3,10 +3,7 @@
 	import { isOpen, handleButton, shoppingCart, handleCart } from '../stores/shoppingCart';
 	import IconifyIcon from '@iconify/svelte';
 	import CartItem from './CartItem.svelte';
-
-	shoppingCart.subscribe((val) => {
-		console.log(val);
-	});
+	import { goto } from '$app/navigation';
 
 	const getTotal = (ShoppingCart: Product[]) => {
 		return ShoppingCart.reduce((prev, value) => {
@@ -21,7 +18,9 @@
 	} w-full bg-white fixed top-0 h-full shadow-2xl md:w-[35vw] xl:max-w-[30vw] transition-all duration-300 z-20 px-4 lg:px[35px] content-stretch flex flex-col`}
 >
 	<div class="flex items-center justify-between py-6 border-b">
-		<div class="uppercase text-sm font-semibold">Shopping Bag ({$shoppingCart.length})</div>
+		<div class="open-sans uppercase text-sm font-semibold">
+			Shopping Bag ({$shoppingCart.length})
+		</div>
 		<button
 			on:click={() => handleButton()}
 			class="cursor-pointer w-8 h-8 flex justify-center items-center"
@@ -30,7 +29,9 @@
 		</button>
 	</div>
 	<div class="flex flex-col justify-between h-full">
-		<div class="max-h-[650px] overflow-auto">
+		<div
+			class="overflow-y-auto flex flex-col gap-y-2 max-h-[520px] lg:max-h-[640px] overflow-x-hidden border-b"
+		>
 			{#each $shoppingCart as cartItem}
 				<div class="border-b">
 					<CartItem {cartItem} />
@@ -38,10 +39,10 @@
 			{/each}
 		</div>
 
-		<div class="items-center flex flex-col w-full justify-center gap-3 py-5">
+		<div class="flex flex-col w-full items-center gap-3 py-3 open-sans">
 			<div class="flex items-center justify-between w-full font-bold open-sans text-lg uppercase">
-				<div class="ml-auto">
-					<span class="text-md">Total:</span> $ {getTotal($shoppingCart)}
+				<div class="text-md font-semibold">
+					Total: $ {getTotal($shoppingCart)}
 				</div>
 				<button
 					class="ml-auto transition bg-red-500 p-2"
@@ -52,14 +53,14 @@
 				</button>
 			</div>
 			<button
-				class="w-full bg-lime-600 shadow text-white rounded-md p-1 open-sans tracking-wide font-bold"
-				>Checkout</button
+				class="bg-gray-200 flex p-3 justify-center items-center text-primary w-full font-medium"
+				on:click={() => goto('/')}>Checkout</button
 			>
 			<button
-				class="w-full bg-purple-900 shadow text-white rounded-md p-1 open-sans tracking-wide font-bold"
-				>Continue shopping</button
+				class="bg-primary flex p-3 justify-center items-center text-white w-full font-medium"
+				on:click={() => handleButton()}>Continue shopping</button
 			>
-			<button class="underline"> View cart </button>
+			<button on:click={() => goto('/')} class="underline"> View cart </button>
 		</div>
 	</div>
 </div>

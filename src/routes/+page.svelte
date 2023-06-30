@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Product from '../components/Product.svelte';
+	import Hero from './Hero.svelte';
 
 	export let data;
 </script>
 
+<Hero />
 <section class="py-16">
 	<div class="container mx-auto">
 		<div
