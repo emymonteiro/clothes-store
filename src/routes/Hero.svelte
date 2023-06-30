@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import woman from '$lib/assets/woman.png';
 	const toImageUrl = (processedImagePath: string) =>
 		`url('${processedImagePath.slice(1).replaceAll('\\', '/')}')`;
@@ -15,7 +16,10 @@
 				SUMMER SALE STYLISH <br />
 				<span class="font-semibold">WOMEN</span>
 			</h1>
-			<button class="self-start uppercase font-semibold border-b-2 border-primary">
+			<button
+				on:click={() => goto('/')}
+				class="self-start uppercase font-semibold border-b-2 border-primary"
+			>
 				Discover More
 			</button>
 		</div>
