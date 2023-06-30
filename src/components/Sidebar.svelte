@@ -3,7 +3,12 @@
 	import { isOpen, handleButton, shoppingCart, handleCart } from '../stores/shoppingCart';
 	import IconifyIcon from '@iconify/svelte';
 	import CartItem from './CartItem.svelte';
-	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { redirectRoute } from '../stores/apiRequests';
+
+	function gotoRoute(route: string) {
+		redirectRoute($page.url.origin, route);
+	}
 
 	const getTotal = (ShoppingCart: Product[]) => {
 		return ShoppingCart.reduce((prev, value) => {
@@ -54,13 +59,13 @@
 			</div>
 			<button
 				class="bg-gray-200 flex p-3 justify-center items-center text-primary w-full font-medium"
-				on:click={() => goto('/')}>Checkout</button
+				on:click={() => gotoRoute('/')}>Checkout</button
 			>
 			<button
 				class="bg-primary flex p-3 justify-center items-center text-white w-full font-medium"
 				on:click={() => handleButton()}>Continue shopping</button
 			>
-			<button on:click={() => goto('/')} class="underline"> View cart </button>
+			<button on:click={() => gotoRoute('/')} class="underline"> View cart </button>
 		</div>
 	</div>
 </div>

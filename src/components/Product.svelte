@@ -1,13 +1,14 @@
 <script lang="ts">
 	import type { Product } from '../interfaces/ClothingStore';
-	import { goto } from '$app/navigation';
 	import IconifyIcon from '@iconify/svelte';
 	import { handleCart } from '../stores/shoppingCart';
 	export let product: Product;
 	const { id, image, category, title, price } = product;
+	import { page } from '$app/stores';
+	import { redirectRoute } from '../stores/apiRequests';
 
 	function productRoute(id: number) {
-		goto(`product/${id}`);
+		redirectRoute($page.url.origin, `/product/${id}`);
 	}
 </script>
 

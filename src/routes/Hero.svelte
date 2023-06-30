@@ -1,8 +1,14 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import woman from '$lib/assets/woman.png';
 	const toImageUrl = (processedImagePath: string) =>
 		`url('${processedImagePath.slice(1).replaceAll('\\', '/')}')`;
+
+	import { page } from '$app/stores';
+	import { redirectRoute } from '../stores/apiRequests';
+
+	function gotoRoute(route: string) {
+		redirectRoute($page.url.origin, route);
+	}
 </script>
 
 <section class="h-[800px] pt-24 bg-orange-100 relative select-none open-sans">
@@ -17,7 +23,7 @@
 				<span class="font-semibold">WOMEN</span>
 			</h1>
 			<button
-				on:click={() => goto('/')}
+				on:click={() => gotoRoute('/')}
 				class="self-start uppercase font-semibold border-b-2 border-primary"
 			>
 				Discover More

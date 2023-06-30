@@ -24,7 +24,7 @@
 			<IconifyIcon class="h-10 w-10" icon="iconamoon:shopping-bag-thin" />
 			{#if getLenght($shoppingCart) > 0}
 				<span
-					class="text-xs -bottom-0 -right-0 font-bold text-white bg-red-500 px-1 py-[1px] rounded-full absolute flex items-center justify-center"
+					class="text-xs -bottom-0 -right-0 font-bold text-white bg-red-500 w-5 h-5 rounded-full absolute flex items-center justify-center"
 					style="font-size: 0.6rem;"
 				>
 					{getLenght($shoppingCart) > 9 ? '+9' : getLenght($shoppingCart)}

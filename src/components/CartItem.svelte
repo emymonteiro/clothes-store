@@ -1,14 +1,13 @@
 <script lang="ts">
 	import type { Product } from '../interfaces/ClothingStore';
-	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import IconifyIcon from '@iconify/svelte';
 	import { handleCart } from '../stores/shoppingCart';
 	export let cartItem: Product;
+	import { redirectRoute } from '../stores/apiRequests';
 
 	function productRoute(id: number) {
-		const pathBase = $page.url.origin.includes('github') ? '/clothes-store' : '';
-		goto(`${$page.url.origin}${pathBase}/product/${id}`);
+		redirectRoute($page.url.origin, `/product/${id}`);
 	}
 </script>
 
